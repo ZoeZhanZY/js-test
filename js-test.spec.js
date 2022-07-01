@@ -14,27 +14,28 @@ test("findItemInArray", () => {
   expect(findItemInArray(fruit, market)).toEqual(expectedResult);
 });
 
-// Test 2
-// test("getTotalPrice", () => {
-//   const market = {
-//     mango: {
-//       quantity: 2,
-//       price: 10,
-//     },
-//     apple: {
-//       quantity: 2,
-//       price: 5,
-//     },
-//     banana: {
-//       quantity: 5,
-//       price: 1,
-//     },
-//   };
+//Test 2
+test("getTotalPrice", () => {
+  const market = {
+    mango: {
+      quantity: 2,
+      price: 10,
+    },
+    apple: {
+      quantity: 2,
+      price: 5,
+    },
+    banana: {
+      quantity: 5,
+      price: 1,
+    },
+  };
 
-//   expect(getTotalPrice(market)).toEqual(35);
-// });
+	
+  expect(getTotalPrice(market)).toEqual(35);
+});
 
-// Test 3
+//Test 3
 // test("intersection", () => {
 //   const array1 = [2, 1, 4, 8];
 //   const array2 = [2, 3, 4];
@@ -61,3 +62,5 @@ test("findItemInArray", () => {
 //   expect(removeItem(array1, "a", "c")).toEqual(expectedResult1);
 //   expect(removeItem(array1, "a", "b", "c")).toEqual(expectedResult2);
 // });
+
+// Test 6

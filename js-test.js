@@ -14,7 +14,15 @@ const findItemInArray = (arr1, arr2) => {
   return availabilityResult;
 };
 
-const getTotalPrice = () => false;
+const getTotalPrice = (obj) => {
+  const marketArray = Object.values(obj);
+  const product = (quantity, price) => quantity * price;
+  const totalPrice = marketArray.reduce((previousValue, currentValue) => {
+    return previousValue + product(currentValue.quantity, currentValue.price);
+  }, 0);
+
+  return totalPrice;
+};
 
 module.exports = {
   findItemInArray,
