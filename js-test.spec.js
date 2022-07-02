@@ -1,4 +1,4 @@
-const { findItemInArray, getTotalPrice } = require("./js-test");
+const { findItemInArray, getTotalPrice, intersection } = require("./js-test");
 
 // Test 1
 test("findItemInArray", () => {
@@ -36,13 +36,13 @@ test("getTotalPrice", () => {
 });
 
 //Test 3
-// test("intersection", () => {
-//   const array1 = [2, 1, 4, 8];
-//   const array2 = [2, 3, 4];
+test("intersection", () => {
+  const array1 = [2, 1, 4, 8];
+  const array2 = [2, 3, 4];
 
-//   const expectedResult = [2, 4];
-//   expect(intersection(array1, array2)).toEqual(expectedResult);
-// });
+  const expectedResult = [2, 4];
+  expect(intersection(array1, array2)).toEqual(expectedResult);
+});
 
 // Test 4
 // test("getSortedUnique", () => {
