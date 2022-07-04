@@ -3,6 +3,7 @@ const {
   getTotalPrice,
   intersection,
   getSortedUnique,
+  removeItem,
 } = require("./js-test");
 
 // Test 1
@@ -56,15 +57,15 @@ test("getSortedUnique", () => {
   expect(getSortedUnique(array1)).toEqual(expectedResult);
 });
 
-// Test 5
-// test("removeItem", () => {
-//   const array1 = ["a", "b", "c", "a", "b", "c"];
+//Test 5
+test("removeItem", () => {
+  const array1 = ["a", "b", "c", "a", "b", "c"];
 
-//   const expectedResult1 = ["b", "b"];
-//   const expectedResult2 = [];
+  const expectedResult1 = ["b", "b"];
+  const expectedResult2 = [];
 
-//   expect(removeItem(array1, "a", "c")).toEqual(expectedResult1);
-//   expect(removeItem(array1, "a", "b", "c")).toEqual(expectedResult2);
-// });
+  expect(removeItem(array1, "a", "c")).toEqual(expectedResult1);
+  expect(removeItem(array1, "a", "b", "c")).toEqual(expectedResult2);
+});
 
 // Test 6

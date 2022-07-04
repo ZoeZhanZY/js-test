@@ -58,22 +58,32 @@ const intersection = (array1, array2) => {
 };
 
 const getSortedUnique = (arr) => {
-  const sortedArr = arr.sort((a, b) => a - b);
-  console.log({ sortedArr });
-  const expectedResult = sortedArr.reduce((result, item) => {
-    if (result[result.length - 1] !== item) {
-      result.push(item);
-    }
-    console.log({ result });
-    return result;
-  }, []);
+  // solution 1
+  // const sortedArr = arr.sort((a, b) => a - b);
+  // const expectedResult = sortedArr.reduce((result, item) => {
+  //   if (result[result.length - 1] !== item) {
+  //     result.push(item);
+  //   }
+  //   return result;
+  // }, []);
+
+  //solution 2
+  const expectedResult = [...new Set(arr)].sort((a, b) => a - b);
 
   return expectedResult;
 };
 
+const removeItem = (arr1, ...arr2) => {
+  const shouldRemain = (a) => {
+    if (!arr2.includes(a)) return a;
+  };
+  const result = arr1.filter(shouldRemain);
+  return result;
+};
 module.exports = {
   findItemInArray,
   getTotalPrice,
   intersection,
   getSortedUnique,
+  removeItem,
 };
