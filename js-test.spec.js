@@ -4,6 +4,7 @@ const {
   intersection,
   getSortedUnique,
   removeItem,
+  statsFinder,
 } = require("./js-test");
 
 // Test 1
@@ -69,3 +70,9 @@ test("removeItem", () => {
 });
 
 // Test 6
+test("statsFinder", () => {
+  const array1 = [500, 400, 400, 375, 300, 350, 325, 300];
+
+  const expectedResult = [368.75, 400];
+  expect(statsFinder(array1)).toEqual(expectedResult);
+});

@@ -1,13 +1,8 @@
 const findItemInArray = (arr1, arr2) => {
-  const isIncluded = (element, arr) => arr.includes(element);
+  const isIncluded = (ele, arr) => arr.includes(ele);
 
   const availabilityResult = arr1.reduce((result, fruit) => {
-    if (isIncluded(fruit, arr2)) {
-      result[fruit] = true;
-    } else {
-      result[fruit] = false;
-    }
-
+    result[fruit] = isIncluded(fruit, arr2);
     return result;
   }, {});
 
@@ -42,15 +37,13 @@ const intersection = (array1, array2) => {
 
   // solution2
   const result = [];
-  const shouldPushElement = (a, b) => {
-    if (a === b) {
-      result.push(a);
-    }
+  const shouldPush = (a, b) => {
+    if (a === b) result.push(a);
   };
 
   array1.forEach((el1) => {
     array2.forEach((el2) => {
-      shouldPushElement(el1, el2);
+      shouldPush(el1, el2);
     });
   });
 
@@ -66,24 +59,44 @@ const getSortedUnique = (arr) => {
   //   }
   //   return result;
   // }, []);
-
+  // return expectedResult;
   //solution 2
-  const expectedResult = [...new Set(arr)].sort((a, b) => a - b);
-
-  return expectedResult;
+  return [...new Set(arr)].sort((a, b) => a - b);
 };
 
 const removeItem = (arr1, ...arr2) => {
-  const shouldRemain = (a) => {
-    if (!arr2.includes(a)) return a;
-  };
+  const shouldRemain = (a) => !arr2.includes(a);
   const result = arr1.filter(shouldRemain);
   return result;
 };
+
+const statsFinder = (arr) => {
+  const mean = [...arr].reduce((pre, cur) => pre + cur, 0) / arr.length;
+  let max = arr[0],
+    maxCount = 0;
+  const countInstances = [...arr].reduce((all, el) => {
+    if ((el in all) & (maxCount < all[el])) {
+      all[el]++;
+      max = [el];
+      maxCount = all[el];
+    } else {
+      all[el] = 1;
+    }
+
+    console.log({ all, max });
+    return all;
+  }, {});
+
+  const result = [mean, ...max];
+  console.log({ result });
+  return result;
+};
+
 module.exports = {
   findItemInArray,
   getTotalPrice,
   intersection,
   getSortedUnique,
   removeItem,
+  statsFinder,
 };
