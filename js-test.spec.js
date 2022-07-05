@@ -5,6 +5,7 @@ const {
   getSortedUnique,
   removeItem,
   statsFinder,
+  maxProfitDays,
 } = require("./js-test");
 
 // Test 1
@@ -75,4 +76,11 @@ test("statsFinder", () => {
 
   const expectedResult = [361.1111111111111, 300];
   expect(statsFinder(array1)).toEqual(expectedResult);
+});
+
+//Test 7
+test("maxProfitDays", () => {
+	const arr = [220,17, 11, 60, 25, 150, 75, 31, 120, 210]
+	const expectedResult = [2, 9];
+	expect(maxProfitDays(arr)).toEqual(expectedResult);
 });

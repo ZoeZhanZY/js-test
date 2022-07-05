@@ -79,7 +79,7 @@ const statsFinder = (arr) => {
     if (el in all) {
       all[el]++;
       if (maxCount < all[el]) {
-        max = [el];
+        max = el;
         maxCount = all[el];
       }
     } else {
@@ -89,12 +89,29 @@ const statsFinder = (arr) => {
     return max;
   }, arr[0]);
 
-  const result = [mean, ...mode];
-
-  console.log({ result });
+  const result = [mean, mode];
   return result;
 };
 
+const maxProfitDays = (arr) => {
+  let maxProfit = arr[arr.length-1]-arr[0];
+  let result = [];
+  const profitCalculator = (a, b) => a - b;
+
+  for (let saleDay = arr.length - 1; saleDay >= 0; saleDay--) {
+    for (let buyDay = 0; buyDay < saleDay; buyDay++) {
+      const profit = profitCalculator(arr[saleDay], arr[buyDay]);
+      if (profit > maxProfit) {
+        maxProfit = profit;
+				result = [buyDay, saleDay];
+			
+			}
+				console.log({ maxProfit, result });
+    }
+  }
+
+  return result;
+};
 module.exports = {
   findItemInArray,
   getTotalPrice,
@@ -102,4 +119,5 @@ module.exports = {
   getSortedUnique,
   removeItem,
   statsFinder,
+  maxProfitDays,
 };
