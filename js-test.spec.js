@@ -71,8 +71,8 @@ test("removeItem", () => {
 
 // Test 6
 test("statsFinder", () => {
-  const array1 = [500, 400, 400, 375, 300, 350, 325, 300];
+  const array1 = [500, 400, 400, 375, 300, 350, 325, 300, 300];
 
-  const expectedResult = [368.75, 400];
+  const expectedResult = [361.1111111111111, 300];
   expect(statsFinder(array1)).toEqual(expectedResult);
 });

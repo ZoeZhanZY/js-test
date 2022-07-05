@@ -71,23 +71,26 @@ const removeItem = (arr1, ...arr2) => {
 };
 
 const statsFinder = (arr) => {
-  const mean = [...arr].reduce((pre, cur) => pre + cur, 0) / arr.length;
-  let max = arr[0],
-    maxCount = 0;
-  const countInstances = [...arr].reduce((all, el) => {
-    if ((el in all) & (maxCount < all[el])) {
+  const mean = arr.reduce((pre, cur) => pre + cur, 0) / arr.length;
+
+  let maxCount = 0,
+    all = {};
+  const mode = arr.reduce((max, el) => {
+    if (el in all) {
       all[el]++;
-      max = [el];
-      maxCount = all[el];
+      if (maxCount < all[el]) {
+        max = [el];
+        maxCount = all[el];
+      }
     } else {
       all[el] = 1;
     }
 
-    console.log({ all, max });
-    return all;
-  }, {});
+    return max;
+  }, arr[0]);
 
-  const result = [mean, ...max];
+  const result = [mean, ...mode];
+
   console.log({ result });
   return result;
 };
