@@ -1,3 +1,4 @@
+
 const {
   findItemInArray,
   getTotalPrice,
@@ -6,6 +7,7 @@ const {
   removeItem,
   statsFinder,
   maxProfitDays,
+  uniqueCharacters,
 } = require("./js-test");
 
 // Test 1
@@ -83,4 +85,15 @@ test("maxProfitDays", () => {
 	const arr = [220,17, 11, 60, 25, 150, 75, 31, 120, 210]
 	const expectedResult = [2, 9];
 	expect(maxProfitDays(arr)).toEqual(expectedResult);
+});
+
+
+//Test 8
+test("uniqueCharacters", () => {
+	const string1 = "Aplee";
+	const string2 = "phone";
+	const string1Result = false;
+	const string2Result = true;
+	expect(uniqueCharacters(string1)).toEqual(string1Result);
+	expect(uniqueCharacters(string2)).toEqual(string2Result);
 });

@@ -1,3 +1,5 @@
+const { boolean } = require("yargs");
+
 const findItemInArray = (arr1, arr2) => {
   const isIncluded = (ele, arr) => arr.includes(ele);
 
@@ -94,19 +96,35 @@ const statsFinder = (arr) => {
 };
 
 const maxProfitDays = (arr) => {
-  let maxProfit = arr[arr.length-1]-arr[0];
+	const profitCalculator = (a, b) => a - b;
+	const arrLength = arr.length - 1;
+  let maxProfit = arr[arrLength] - arr[0];
   let result = [];
-  const profitCalculator = (a, b) => a - b;
 
-  for (let saleDay = arr.length - 1; saleDay >= 0; saleDay--) {
+  for (let saleDay = arrLength; saleDay >= 0; saleDay--) {
     for (let buyDay = 0; buyDay < saleDay; buyDay++) {
       const profit = profitCalculator(arr[saleDay], arr[buyDay]);
       if (profit > maxProfit) {
         maxProfit = profit;
-				result = [buyDay, saleDay];
-			
-			}
-				console.log({ maxProfit, result });
+        result = [buyDay, saleDay];
+      }
+    }
+  }
+
+  return result;
+};
+
+const uniqueCharacters = (str) => {
+  const stringLength = str.length - 1;
+  let result = true;
+
+  for (let i = 1; i <= stringLength; i++) {
+    const slicedString = str.slice(i);
+    const isRepeated = slicedString.includes(str[i - 1]);
+
+    if (isRepeated) {
+      result = false;
+      break;
     }
   }
 
@@ -120,4 +138,5 @@ module.exports = {
   removeItem,
   statsFinder,
   maxProfitDays,
+  uniqueCharacters,
 };
