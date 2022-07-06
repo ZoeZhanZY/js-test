@@ -1,5 +1,3 @@
-const { boolean } = require("yargs");
-
 const findItemInArray = (arr1, arr2) => {
   const isIncluded = (ele, arr) => arr.includes(ele);
 
@@ -96,8 +94,8 @@ const statsFinder = (arr) => {
 };
 
 const maxProfitDays = (arr) => {
-	const profitCalculator = (a, b) => a - b;
-	const arrLength = arr.length - 1;
+  const profitCalculator = (a, b) => a - b;
+  const arrLength = arr.length - 1;
   let maxProfit = arr[arrLength] - arr[0];
   let result = [];
 
@@ -115,21 +113,29 @@ const maxProfitDays = (arr) => {
 };
 
 const uniqueCharacters = (str) => {
-  const stringLength = str.length - 1;
-  let result = true;
+  //solution 1
+  // const stringLength = str.length - 1;
+  // let result = true;
 
-  for (let i = 1; i <= stringLength; i++) {
-    const slicedString = str.slice(i);
-    const isRepeated = slicedString.includes(str[i - 1]);
+  // for (let i = 1; i <= stringLength; i++) {
+  //   const slicedString = str.slice(i);
+  //   const isRepeated = slicedString.includes(str[i - 1]);
 
-    if (isRepeated) {
-      result = false;
-      break;
-    }
-  }
+  //   if (isRepeated) {
+  //     result = false;
+  //     break;
+  //   }
+  // }
+  // return result
 
-  return result;
+  //solution 2
+
+  const array = str.split("");
+  const newArray = [...new Set(array)];
+
+  return array.length === newArray.length;
 };
+
 module.exports = {
   findItemInArray,
   getTotalPrice,

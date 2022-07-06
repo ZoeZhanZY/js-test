@@ -90,7 +90,7 @@ test("maxProfitDays", () => {
 
 //Test 8
 test("uniqueCharacters", () => {
-	const string1 = "Aplee";
+	const string1 = "Apple";
 	const string2 = "phone";
 	const string1Result = false;
 	const string2Result = true;
