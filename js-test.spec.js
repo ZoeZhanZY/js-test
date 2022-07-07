@@ -1,4 +1,3 @@
-
 const {
   findItemInArray,
   getTotalPrice,
@@ -9,6 +8,7 @@ const {
   maxProfitDays,
   uniqueCharacters,
   twoSum,
+  addTwoNumbers,
 } = require("./js-test");
 
 // Test 1
@@ -83,33 +83,50 @@ test("statsFinder", () => {
 
 //Test 7
 test("maxProfitDays", () => {
-	const arr = [220,17, 11, 60, 25, 150, 75, 31, 120, 210]
-	const expectedResult = [2, 9];
-	expect(maxProfitDays(arr)).toEqual(expectedResult);
+  const arr = [220, 17, 11, 60, 25, 150, 75, 31, 120, 210];
+  const expectedResult = [2, 9];
+  expect(maxProfitDays(arr)).toEqual(expectedResult);
 });
-
 
 //Test 8
 test("uniqueCharacters", () => {
-	const string1 = "Apple";
-	const string2 = "phone";
-	const string1Result = false;
-	const string2Result = true;
-	expect(uniqueCharacters(string1)).toEqual(string1Result);
-	expect(uniqueCharacters(string2)).toEqual(string2Result);
+  const string1 = "Apple";
+  const string2 = "phone";
+  const string1Result = false;
+  const string2Result = true;
+  expect(uniqueCharacters(string1)).toEqual(string1Result);
+  expect(uniqueCharacters(string2)).toEqual(string2Result);
 });
 
 //Test 9
 test("twoSum", () => {
-	const test1 = [ 3, 3]
-	const test2 =[3, 2, 4]
-	const expectedResult1 = [0, 1]
-	const expectedResult2 = [1, 2];
-	expect(twoSum(test1, 6)).toEqual(expectedResult1);
-	expect(twoSum(test2, 6)).toEqual(expectedResult2);
+  const test1 = [3, 3];
+  const test2 = [3, 2, 4];
+  const expectedResult1 = [0, 1];
+  const expectedResult2 = [1, 2];
+  expect(twoSum(test1, 6)).toEqual(expectedResult1);
+  expect(twoSum(test2, 6)).toEqual(expectedResult2);
 });
 
 //Test 10
+test("addTwoNumbers", () => {
+  const test1A = [2, 4, 3];
+  const test1B = [5, 6, 4];
+  const test2A = [0];
+  const test2B = [0];
+  const test3A = [9, 9, 9, 9, 9, 9, 9];
+  const test3B = [9, 9, 9, 9];
+
+  const expectedResult1 = [7, 0, 8];
+  const expectedResult2 = [0];
+  const expectedResult3 = [8, 9, 9, 9, 0, 0, 0, 1];
+
+  expect(addTwoNumbers(test1A, test1B)).toEqual(expectedResult1);
+  expect(addTwoNumbers(test2A, test2B)).toEqual(expectedResult2);
+  expect(addTwoNumbers(test3A, test3B)).toEqual(expectedResult3);
+});
+
+//Test 11
 // test("", () => {
 // 	const test =
 // 	const expectedResult =

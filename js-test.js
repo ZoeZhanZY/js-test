@@ -137,8 +137,7 @@ const uniqueCharacters = (str) => {
 };
 
 const twoSum = (arr, target) => {
-
-	//solution 1
+  //solution 1
   // for (let i = 0; i < arr.length - 1; i++) {
   //   const difference = target - arr[i];
   //   const slicedArray = arr.slice(i + 1);
@@ -150,17 +149,27 @@ const twoSum = (arr, target) => {
   //   }
   // }
 
-	//solution 2
+  //solution 2
 
-    for (var i = 0; i < arr.length; i++) {
-      for (var j = i + 1; j < arr.length; j++) {
-        if (arr[i] + arr[j] == target) {
-          return [i, j];
-        }
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] == target) {
+        return [i, j];
       }
     }
-  };
+  }
+};
 
+const addTwoNumbers = (l1, l2) => {
+  const num = (link) => {
+    const arr = Array.from(link);
+    return arr.reduce((pre, cur, i) => pre + cur * Math.pow(10, i),0);
+  };
+  const sum = num(l1) + num(l2);
+  const sumArray = sum.toString().split("").reverse();
+  const result = sumArray.map((el) => Number(el));
+  return result;
+};
 
 module.exports = {
   findItemInArray,
@@ -172,4 +181,5 @@ module.exports = {
   maxProfitDays,
   uniqueCharacters,
   twoSum,
+  addTwoNumbers,
 };
