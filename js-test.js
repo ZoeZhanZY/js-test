@@ -136,6 +136,32 @@ const uniqueCharacters = (str) => {
   return array.length === newArray.length;
 };
 
+const twoSum = (arr, target) => {
+
+	//solution 1
+  // for (let i = 0; i < arr.length - 1; i++) {
+  //   const difference = target - arr[i];
+  //   const slicedArray = arr.slice(i + 1);
+  //   const isIncluded = slicedArray.includes(difference);
+  //   const j = slicedArray.indexOf(difference) + i + 1;
+
+  //   if (isIncluded) {
+  //     return [i, j];
+  //   }
+  // }
+
+	//solution 2
+
+    for (var i = 0; i < arr.length; i++) {
+      for (var j = i + 1; j < arr.length; j++) {
+        if (arr[i] + arr[j] == target) {
+          return [i, j];
+        }
+      }
+    }
+  };
+
+
 module.exports = {
   findItemInArray,
   getTotalPrice,
@@ -145,4 +171,5 @@ module.exports = {
   statsFinder,
   maxProfitDays,
   uniqueCharacters,
+  twoSum,
 };

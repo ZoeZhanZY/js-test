@@ -8,6 +8,7 @@ const {
   statsFinder,
   maxProfitDays,
   uniqueCharacters,
+  twoSum,
 } = require("./js-test");
 
 // Test 1
@@ -97,3 +98,20 @@ test("uniqueCharacters", () => {
 	expect(uniqueCharacters(string1)).toEqual(string1Result);
 	expect(uniqueCharacters(string2)).toEqual(string2Result);
 });
+
+//Test 9
+test("twoSum", () => {
+	const test1 = [ 3, 3]
+	const test2 =[3, 2, 4]
+	const expectedResult1 = [0, 1]
+	const expectedResult2 = [1, 2];
+	expect(twoSum(test1, 6)).toEqual(expectedResult1);
+	expect(twoSum(test2, 6)).toEqual(expectedResult2);
+});
+
+//Test 10
+// test("", () => {
+// 	const test =
+// 	const expectedResult =
+// 		expect((test)).toEqual(expectedResult);
+// });
