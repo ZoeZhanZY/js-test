@@ -163,12 +163,34 @@ const twoSum = (arr, target) => {
 const addTwoNumbers = (l1, l2) => {
   const num = (link) => {
     const arr = Array.from(link);
-    return arr.reduce((pre, cur, i) => pre + cur * Math.pow(10, i),0);
+    return arr.reduce((pre, cur, i) => pre + cur * Math.pow(10, i), 0);
   };
   const sum = num(l1) + num(l2);
   const sumArray = sum.toString().split("").reverse();
   const result = sumArray.map((el) => Number(el));
   return result;
+};
+
+const lengthOfLongestSubstring = (s) => {
+  let maxLength = 0;
+
+  loop1: for (let i = 0; i < s.length; i++) {
+    loop2: for (let j = 1; j <= s.length - i; j++) {
+      const newString = s.substr(i, j);
+      console.log({ newString, i, j });
+      console.log(s[i + j]);
+
+      if (newString.includes(s[i + j]) || !s[i + j]) {
+        if (j > maxLength) {
+          maxLength = j;
+        }
+        console.log("break loop2");
+        break loop2;
+      }
+    }
+  }
+  console.log(maxLength);
+  return maxLength;
 };
 
 module.exports = {
@@ -182,4 +204,5 @@ module.exports = {
   uniqueCharacters,
   twoSum,
   addTwoNumbers,
+  lengthOfLongestSubstring,
 };

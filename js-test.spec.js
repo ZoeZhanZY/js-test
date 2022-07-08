@@ -9,6 +9,7 @@ const {
   uniqueCharacters,
   twoSum,
   addTwoNumbers,
+  lengthOfLongestSubstring,
 } = require("./js-test");
 
 // Test 1
@@ -127,6 +128,21 @@ test("addTwoNumbers", () => {
 });
 
 //Test 11
+test("lengthOfLongestSubstring", () => {
+  const test1 = "a";
+  const expectedResult1 = 1;
+
+  const test2 = "bbbbb";
+  const expectedResult2 = 1;
+
+  const test3 = "pwwkew";
+  const expectedResult3 = 3;
+  expect(lengthOfLongestSubstring(test1)).toEqual(expectedResult1);
+  expect(lengthOfLongestSubstring(test2)).toEqual(expectedResult2);
+  expect(lengthOfLongestSubstring(test3)).toEqual(expectedResult3);
+});
+
+//Test 12
 // test("", () => {
 // 	const test =
 // 	const expectedResult =
