@@ -10,6 +10,7 @@ const {
   twoSum,
   addTwoNumbers,
   lengthOfLongestSubstring,
+  findMedianSortedArrays,
 } = require("./js-test");
 
 // Test 1
@@ -143,6 +144,22 @@ test("lengthOfLongestSubstring", () => {
 });
 
 //Test 12
+test("findMedianSortedArrays", () => {
+  const test1A = [1, 3];
+  const test1B = [2];
+  const test2A = [1, 2];
+  const test2B = [3, 4];
+  const test3A = [100000];
+  const test3B = [100001];
+  const expectedResult1 = 2.00000;
+  const expectedResult2 = 2.50000;
+  const expectedResult3 = 100000.50000;
+  expect(findMedianSortedArrays(test1A, test1B)).toBe(expectedResult1);
+  expect(findMedianSortedArrays(test2A, test2B)).toBe(expectedResult2);
+  expect(findMedianSortedArrays(test3A, test3B)).toBe(expectedResult3);
+});
+
+//Test 13
 // test("", () => {
 // 	const test =
 // 	const expectedResult =

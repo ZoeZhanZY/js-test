@@ -177,20 +177,33 @@ const lengthOfLongestSubstring = (s) => {
   loop1: for (let i = 0; i < s.length; i++) {
     loop2: for (let j = 1; j <= s.length - i; j++) {
       const newString = s.substr(i, j);
-      console.log({ newString, i, j });
-      console.log(s[i + j]);
 
       if (newString.includes(s[i + j]) || !s[i + j]) {
         if (j > maxLength) {
           maxLength = j;
         }
-        console.log("break loop2");
+
         break loop2;
       }
     }
   }
-  console.log(maxLength);
+
   return maxLength;
+};
+
+const findMedianSortedArrays = (nums1, nums2) => {
+  const arr = nums1.concat(nums2).sort((a, b) => a - b);
+  const length = arr.length;
+  const isEven = length % 2 === 0;
+  let result = 0;
+	if (isEven) {
+		const i = length/2
+    result = (arr[i] + arr[i - 1]) / 2;
+  } else {
+    result = arr[(length - 1) / 2];
+  }
+  console.log({ result });
+  return result;
 };
 
 module.exports = {
@@ -205,4 +218,5 @@ module.exports = {
   twoSum,
   addTwoNumbers,
   lengthOfLongestSubstring,
+  findMedianSortedArrays,
 };
