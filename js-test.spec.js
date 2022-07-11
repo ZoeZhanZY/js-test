@@ -11,6 +11,7 @@ const {
   addTwoNumbers,
   lengthOfLongestSubstring,
   findMedianSortedArrays,
+  longestPalindrome,
 } = require("./js-test");
 
 // Test 1
@@ -151,15 +152,46 @@ test("findMedianSortedArrays", () => {
   const test2B = [3, 4];
   const test3A = [100000];
   const test3B = [100001];
-  const expectedResult1 = 2.00000;
-  const expectedResult2 = 2.50000;
-  const expectedResult3 = 100000.50000;
+  const expectedResult1 = 2.0;
+  const expectedResult2 = 2.5;
+  const expectedResult3 = 100000.5;
   expect(findMedianSortedArrays(test1A, test1B)).toBe(expectedResult1);
   expect(findMedianSortedArrays(test2A, test2B)).toBe(expectedResult2);
   expect(findMedianSortedArrays(test3A, test3B)).toBe(expectedResult3);
 });
 
 //Test 13
+test("longestPalindrome", () => {
+  const test = "babad";
+  const expectedResult = "bab";
+	expect(longestPalindrome(test)).toEqual(expectedResult);
+	
+  const test1 = "caba";
+  const expectedResult1 = "aba";
+  expect(longestPalindrome(test1)).toEqual(expectedResult1);
+
+  const test2 = "abb";
+  const expectedResult2 = "bb";
+  expect(longestPalindrome(test2)).toEqual(expectedResult2);
+
+  const test3 = "a";
+  const expectedResult3 = "a";
+  expect(longestPalindrome(test3)).toEqual(expectedResult3);
+
+  const test4 = "cbbd";
+  const expectedResult4 = "bb";
+  expect(longestPalindrome(test4)).toEqual(expectedResult4);
+
+  const test5 = "aacabdkacaa";
+  const expectedResult5 = "aca";
+	expect(longestPalindrome(test5)).toEqual(expectedResult5);
+	
+	const test6 = "abcdbbfcba";
+  const expectedResult6 = "bb";
+  expect(longestPalindrome(test6)).toEqual(expectedResult6);
+});
+
+//Test 14
 // test("", () => {
 // 	const test =
 // 	const expectedResult =

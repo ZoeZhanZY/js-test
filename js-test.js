@@ -196,14 +196,83 @@ const findMedianSortedArrays = (nums1, nums2) => {
   const length = arr.length;
   const isEven = length % 2 === 0;
   let result = 0;
-	if (isEven) {
-		const i = length/2
+  if (isEven) {
+    const i = length / 2;
     result = (arr[i] + arr[i - 1]) / 2;
   } else {
     result = arr[(length - 1) / 2];
   }
-  console.log({ result });
   return result;
+};
+
+/**
+ * We define a specified length, starting from the length of the original string to 0;
+ * We find all possible substrings with the specified length,
+ * pass each substring to isPalindrome to check if it's a palindrome,
+ * if a palindrome is not found, We use a loop to reduce the specified length by 1.
+ * 
+ * Since we are working from the longest string to the shortest
+ * Therefore, the first truly return from isPalindrome is the the longest palindrome
+
+ * @param {string} s - any string
+ * @returns the longest palindrome string
+ */
+const longestPalindrome = (s) => {
+  const strL = s.length;
+
+  const isPalindrome = (str, l, r) => {
+    let i = 0;
+    while (i < (r - l + 1) / 2) {
+      if (str[l + i] === str[r - 1 - i]) {
+        i++;
+      } else {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  for (let newStrL = strL; newStrL >= 0; newStrL--) {
+    innerLoop: for (let l = 0; l < strL; l++) {
+      const r = newStrL + l;
+
+      if (r > strL) {
+        break innerLoop;
+      } else if (isPalindrome(s, l, r)) {
+        const newStr = s.slice(l, r);
+
+        return newStr;
+      }
+    }
+  }
+
+  // a copy
+  // 	var longestPalindrome = function(s) {
+  //     if (!s) return "";
+
+  //     let longest = "";
+
+  //     for (let i = 0; i < s.length; i++) {
+  //         const oddPalindrome = getPalindrome(s, i, i);
+  //         const evenPalindrome = getPalindrome(s, i - 1, i);
+
+  //         longest = longest.length < oddPalindrome.length ? oddPalindrome : longest;
+  //         longest = longest.length < evenPalindrome.length ? evenPalindrome : longest;
+  //     }
+
+  //     return longest;
+  // };
+
+  // var getPalindrome = function(s, l, r) {
+  //     let i = 0;
+
+  //     while (s[l - i] && s[l - i] === s[r + i]) {
+  //         i++;
+  //     }
+
+  //     i--;
+
+  //     return s.slice(l - i, r + i + 1);
 };
 
 module.exports = {
@@ -219,4 +288,5 @@ module.exports = {
   addTwoNumbers,
   lengthOfLongestSubstring,
   findMedianSortedArrays,
+  longestPalindrome,
 };
